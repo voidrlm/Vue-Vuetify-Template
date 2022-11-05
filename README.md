@@ -2,6 +2,8 @@
 
 ## Project setup
 main branch - Contains vue 2 
+
+
 vuetify_2-setup branch - Contains vue 2 & vuetify 2 
 ```
 npm install

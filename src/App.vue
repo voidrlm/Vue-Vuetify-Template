@@ -10,7 +10,7 @@
         v-model="$vuetify.theme.dark"
         inset
         class="font-weight-bold mt-5"
-        :color="$vuetify.theme.dark ? 'white' : 'black'"
+        color="white"
         label="Dark Mode"
         persistent-hint
       ></v-switch>

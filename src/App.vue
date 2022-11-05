@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <app-bar />
+      <nav-bar />
       <HelloWorld />
     </v-main>
   </v-app>
@@ -9,15 +9,13 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld";
-import appBar from "./components/navigation/appBar";
+import navBar from "./components/navigation/navBar";
 export default {
   name: "App",
-
   components: {
     HelloWorld,
-    appBar,
+    navBar,
   },
-
   data: () => ({
     //
   }),

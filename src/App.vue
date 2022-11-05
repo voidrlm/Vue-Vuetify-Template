@@ -1,22 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar class="primary white--text" app>
-      <v-toolbar-title
-        :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
-        >Vue And Vuetify Setup</v-toolbar-title
-      >
-      <v-spacer></v-spacer>
-      <v-switch
-        v-model="$vuetify.theme.dark"
-        inset
-        class="font-weight-bold mt-5"
-        color="white"
-        label="Dark Mode"
-        persistent-hint
-      ></v-switch>
-    </v-app-bar>
-
     <v-main>
+      <app-bar />
       <HelloWorld />
     </v-main>
   </v-app>
@@ -24,12 +9,13 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld";
-
+import appBar from "./components/navigation/appBar";
 export default {
   name: "App",
 
   components: {
     HelloWorld,
+    appBar,
   },
 
   data: () => ({

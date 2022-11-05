@@ -2,22 +2,27 @@
   <v-app>
     <v-main>
       <nav-bar />
-      <HelloWorld />
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
 import navBar from "./components/navigation/navBar";
 export default {
   name: "App",
   components: {
-    HelloWorld,
     navBar,
   },
   data: () => ({
     //
   }),
+  mounted() {
+    if (this.$route.path !== "/dashboard") {
+      this.$router.push({
+        path: "/dashboard",
+      });
+    }
+  },
 };
 </script>

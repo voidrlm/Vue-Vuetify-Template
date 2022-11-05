@@ -15,7 +15,12 @@
       </v-list-item>
 
       <v-list nav rounded class="mt-5">
-        <v-list-item v-for="item in items" :key="item.title" link>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          router
+          :to="item.route"
+        >
           <v-list-item-icon class="mx-3">
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -39,7 +44,9 @@ export default {
 
   data: () => ({
     showNavbarDrawer: true,
-    items: [{ title: "Dashboard", icon: "mdi-view-dashboard" }],
+    items: [
+      { title: "Dashboard", icon: "mdi-view-dashboard", route: "/dashboard" },
+    ],
   }),
 };
 </script>

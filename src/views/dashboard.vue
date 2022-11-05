@@ -1,16 +1,24 @@
 <template>
   <v-container fluid>
-    <v-card class="mx-auto" max-width="344">
-      <h1>Good,User!</h1>
-      <v-card-actions>
-        <v-btn text color="deep-purple accent-4"> Learn More </v-btn>
-      </v-card-actions>
-    </v-card></v-container
-  >
+    <v-card-title :class="$vuetify.breakpoint.mdAndUp ? 'text-h4' : 'text-h5'"
+      >{{ getGreetingData }},User!</v-card-title
+    >
+  </v-container>
 </template>
 <script>
 export default {
   name: "dashboard-component",
   data: () => ({}),
+  computed: {
+    getGreetingData() {
+      var today = new Date();
+      var curHr = today.getHours();
+      return curHr < 12
+        ? "Good Morning"
+        : curHr > 18
+        ? "Good Evening"
+        : "Good Afternoon";
+    },
+  },
 };
 </script>

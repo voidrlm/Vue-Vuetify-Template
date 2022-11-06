@@ -1,10 +1,7 @@
 # vue-app
 
 ## Project setup
-main branch - Contains vue 2 
-
-
-vuetify_2-setup branch - Contains vue 2 & vuetify 2 
+Creating a simple app using vue and vuetify
 ```
 npm install
 ```

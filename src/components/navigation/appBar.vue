@@ -27,10 +27,9 @@ export default {
     },
     timer: undefined,
   }),
-
   beforeMount() {
-    if (localStorage.getItem("darkTheme")) {
-      this.$vuetify.theme.dark = localStorage.getItem("darkTheme");
+    if (localStorage.getItem("darkTheme") !== null) {
+      this.$vuetify.theme.dark = JSON.parse(localStorage.getItem("darkTheme"));
     }
     if (localStorage.getItem("lightAccent")) {
       this.$vuetify.theme.themes.light.accent =

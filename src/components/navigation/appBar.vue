@@ -10,21 +10,34 @@
     ></v-app-bar-nav-icon>
 
     <v-spacer></v-spacer>
-    <span v-if="$vuetify.breakpoint.mdAndUp" class="subtitle-1"
+    <span
+      @click="showClock = true"
+      v-if="$vuetify.breakpoint.mdAndUp"
+      class="subtitle-1"
       >{{ dateTime.hours }}:{{ dateTime.minutes }}{{ " "
       }}{{ dateTime.ampm }}</span
     >
     <appBarMenu />
+    <div v-if="showClock">
+      <clockDialog
+        :showClock="showClock"
+        :dateTime="dateTime"
+        @hideClock="showClock = false"
+      />
+    </div>
   </v-app-bar>
 </template>
 
 <script>
+import clockDialog from "../clock/clockDialog.vue";
 import appBarMenu from "./appBarMenu.vue";
 export default {
   components: {
     appBarMenu,
+    clockDialog,
   },
   data: () => ({
+    showClock: false,
     dateTime: {
       hours: "--",
       minutes: "--",
@@ -56,6 +69,7 @@ export default {
         hours: date.getHours() % 12,
         minutes: (date.getMinutes() < 10 ? "0" : "") + date.getMinutes(),
         ampm: date.getHours() >= 12 ? "PM" : "AM",
+        date: new Date().toDateString(),
       };
     },
   },

@@ -1,5 +1,10 @@
 <template>
-  <v-app-bar color="transparent" app dense flat>
+  <v-app-bar
+    :color="$vuetify.theme.dark ? '#121212' : '#FFFFFF'"
+    app
+    dense
+    flat
+  >
     <v-app-bar-nav-icon
       @click.stop="$emit('openCloseNavBar')"
     ></v-app-bar-nav-icon>

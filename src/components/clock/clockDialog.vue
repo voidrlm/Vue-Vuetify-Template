@@ -29,17 +29,14 @@ export default {
   components: {},
   props: { showClock: Boolean, dateTime: Object },
   data: () => ({}),
+  mounted: function () {
+    let elHtml = document.getElementsByTagName("html")[0];
+    elHtml.style.overflowY = "hidden";
+  },
+  destroyed: function () {
+    let elHtml = document.getElementsByTagName("html")[0];
+    elHtml.style.overflowY = null;
+  },
 };
 </script>
-<style>
-html {
-  overflow: hidden !important;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-html::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-</style>
+<style></style>

@@ -1,29 +1,59 @@
 <template>
-  <v-app-bar class="primary white--text" app>
+  <v-app-bar color="transparent" app dense flat>
     <v-app-bar-nav-icon
       @click.stop="$emit('openCloseNavBar')"
     ></v-app-bar-nav-icon>
 
-    <v-toolbar-title
-      :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
-      >Vue And Vuetify
-    </v-toolbar-title>
     <v-spacer></v-spacer>
-    <div v-if="$vuetify.breakpoint.smAndUp">
-      <v-switch
-        v-model="$vuetify.theme.dark"
-        inset
-        class="font-weight-bold mt-5"
-        color="white"
-        label="Dark Mode"
-        persistent-hint
-      ></v-switch>
-    </div>
+    <span v-if="$vuetify.breakpoint.mdAndUp" class="subtitle-1"
+      >{{ dateTime.hours }}:{{ dateTime.minutes }}{{ " "
+      }}{{ dateTime.ampm }}</span
+    >
+    <appBarMenu />
   </v-app-bar>
 </template>
 
 <script>
+import appBarMenu from "./appBarMenu.vue";
 export default {
-  data: () => ({}),
+  components: {
+    appBarMenu,
+  },
+  data: () => ({
+    dateTime: {
+      hours: "--",
+      minutes: "--",
+      ampm: "",
+    },
+    timer: undefined,
+  }),
+
+  beforeMount() {
+    if (localStorage.getItem("darkTheme")) {
+      this.$vuetify.theme.dark = localStorage.getItem("darkTheme");
+    }
+    if (localStorage.getItem("lightAccent")) {
+      this.$vuetify.theme.themes.light.accent =
+        localStorage.getItem("lightAccent");
+    }
+    if (localStorage.getItem("darkAccent")) {
+      this.$vuetify.theme.themes.dark.accent =
+        localStorage.getItem("darkAccent");
+    }
+    this.timer = setInterval(this.setDateTime, 1000);
+  },
+  beforeUnmount() {
+    clearInterval(this.timer);
+  },
+  methods: {
+    setDateTime() {
+      const date = new Date();
+      this.dateTime = {
+        hours: date.getHours() % 12,
+        minutes: (date.getMinutes() < 10 ? "0" : "") + date.getMinutes(),
+        ampm: date.getHours() >= 12 ? "PM" : "AM",
+      };
+    },
+  },
 };
 </script>

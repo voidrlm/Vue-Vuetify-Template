@@ -1,6 +1,7 @@
 # vue-app
 
 ## Project setup
+Creating a simple app using vue and vuetify
 ```
 npm install
 ```

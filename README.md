@@ -1,7 +1,12 @@
-# vue-app
+# Simple Vue And Vuetify App
 
 ## Project setup
 Creating a simple app using vue and vuetify
+Features:
+1)In-App selectable themes
+2)Switch between dark and light theme
+3)Calender
+4)Clock
 ```
 npm install
 ```

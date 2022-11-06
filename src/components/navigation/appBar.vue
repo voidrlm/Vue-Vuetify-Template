@@ -14,6 +14,7 @@
       @click="showClock = true"
       v-if="$vuetify.breakpoint.mdAndUp"
       class="subtitle-1"
+      style="cursor: pointer"
       >{{ dateTime.hours }}:{{ dateTime.minutes }}{{ " "
       }}{{ dateTime.ampm }}</span
     >

@@ -1,8 +1,9 @@
 # Simple Vue And Vuetify App
 
-## Project setup
-Creating a simple app using vue and vuetify
-Features:
+
+## Creating a simple app using vue and vuetify
+
+## Features:
 
 1)In-App selectable themes
 
@@ -14,7 +15,7 @@ Features:
 
 A starting template for building web applications using VueJS and Vuetify.
 
-Features
+## Features
 
 VueJS for building dynamic and reactive user interfaces
 
@@ -24,7 +25,7 @@ Responsive design for desktop and mobile devices
 
 Ready-to-use components for common user interface elements
 
-Requirements
+## Requirements
 
 NodeJS
 
